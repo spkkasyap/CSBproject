@@ -7,7 +7,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 
 // generate k fold input using parameters: fold to be used as testing
-public class kfoldgeneration {
+public class Kfoldgenrand {
 	// function for two fold generation of Random Orientation
 	public void kfold(HashMap<String, Double> undirected, HashMap<String, Double> directed, int k, int fold) throws IOException
 	{
@@ -64,7 +64,7 @@ public class kfoldgeneration {
 	
 	public static void main(String args[]) throws IOException
 	{
-		kfoldgeneration object1 = new kfoldgeneration();
+		Kfoldgenrand object1 = new Kfoldgenrand();
 		BufferedReader br = new BufferedReader(new FileReader("hin.txt"));
 		HashMap<String, Double> undirected = new HashMap<String, Double>();
 		HashMap<String, Double> directed = new HashMap<String, Double>();

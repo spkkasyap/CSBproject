@@ -5,7 +5,8 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
 
-public class kfoldevaluation {
+//evaluation of random orient
+public class Kfoldevalrand {
 	HashMap<String, Double> undirected = new HashMap<String, Double>();
 	HashMap<String, Double> directed = new HashMap<String, Double>();
 	HashMap<String, Double> allUndirected = new HashMap<String, Double>();
@@ -168,7 +169,7 @@ public class kfoldevaluation {
 
 	public static void main(String args[]) throws IOException
 	{
-		kfoldevaluation obj = new kfoldevaluation();
+		Kfoldevalrand obj = new Kfoldevalrand();
 	
 		obj.readInput();
 		String output = args[0];
