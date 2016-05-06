@@ -29,6 +29,7 @@ public class Kfoldevalrand {
 		br.close();
 		
 		totaldirected = outputDirected.size();
+		
 		System.out.println("directed edges in output "+totaldirected);		
 		
 		int directedCount = directed.size();
@@ -42,6 +43,7 @@ public class Kfoldevalrand {
 		int correct = 0;
 		int wrong = 0;
 		int universe = 0;
+		
 		while(it.hasNext())
 		{
 			String edge = it.next();
@@ -74,59 +76,6 @@ public class Kfoldevalrand {
 	}
 	
 	
-	public void evaluatefold2() throws IOException
-	{
-		int totaldirected;
-		BufferedReader br = new BufferedReader(new FileReader("rotf2_edges.txt"));
-	
-		System.out.println("===================FOLD 2 EVALUATION==================");
-		String line1 = "";
-		while((line1 = br.readLine()) != null)
-		{
-			String [] elements = line1.split("\t");
-			String tail = elements[0];
-			String head = elements[2];
-			outputDirected.add(tail+"&"+head);
-		}
-		br.close();
-		totaldirected = outputDirected.size();
-		System.out.println("initial count on directed edges "+totaldirected);		
-		
-		Iterator<String> it  = directed.keySet().iterator();
-		int count = 0;
-		int correct = 0;
-		int wrong = 0;
-		int universe = 0;
-		while(it.hasNext())
-		{
-			String edge = it.next();
-			String [] elements = edge.split("&");
-			
-			String opposite = elements[1]+"&"+elements[0];
-			
-			if(count <= (directed.size())/2)
-			{
-				universe++;
-				if(outputDirected.contains(edge))
-				{
-					correct++;
-				}
-				else if(outputDirected.contains(opposite))
-				{
-					wrong++;
-				}
-			}
-			
-			count++;
-		}
-		System.out.println("correctly predicted "+correct);
-		System.out.println("wrongly predicted "+wrong);
-		System.out.println("Total universe "+universe);
-		
-		float precision = (float) (100 * correct)/(correct+wrong);
-		float recall = (float) (100 * correct)/(universe);
-		System.out.println("Precision and recall are "+precision+", "+recall);
-	}
 	
 	public void readInput() throws NumberFormatException, IOException
 	{
@@ -148,7 +97,8 @@ public class Kfoldevalrand {
 			{
 				double weight1 = directed.get(opposite);
 				undirected.put(tail+"&"+head, weight);
-				directed.remove(opposite, weight1);
+				//directed.remove(opposite, weight1);
+				directed.remove(opposite);
 			}
 			else
 			{
